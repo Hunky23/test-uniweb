@@ -1,0 +1,65 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: unset;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: unset;
+  font-weight: unset;
+}
+
+a {
+  color: inherit;
+  text-decoration: unset;
+}
+
+p {
+  margin: unset;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+ul {
+  margin: unset;
+  padding: unset;
+}
+
+li {
+  list-style: none;
+}
+
+input {
+  font-family: inherit;
+  outline: unset;
+}
+
+button {
+  padding: unset;
+  cursor: pointer;
+  color: inherit;
+  border: unset;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  margin: unset;
+  -webkit-appearance: none;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}

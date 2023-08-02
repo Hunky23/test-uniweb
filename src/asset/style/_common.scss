@@ -1,0 +1,120 @@
+@import '_vars';
+
+html {
+    color: #000;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.hidden {
+    display: none;
+}
+
+.container {
+    padding: 0 22px;
+}
+
+.btn {
+    position: relative;
+    padding: 2px 15px;
+    font-family: 'Book Antiqua', serif;
+    font-size: 16px;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 7px;
+    background: linear-gradient(#fff9e0, #f5c574 25%, #ffebc3 100%);
+
+    &:before {
+        left: 0;
+        top: 0;
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(#e7c18d,#a66e23 50%,#9c621e);
+        opacity: 0;
+        transition: opacity .3s;
+    }
+
+    &:hover {
+        &:before {
+            opacity: 1;
+        }
+    }
+
+    span {
+        position: relative;
+    }
+}
+
+.selector {
+    width: 200px;
+    position: relative;
+
+    &.active {
+        .selector__option-list-wrapper {
+            max-height: 500px;
+        }
+
+        .selector__image {
+            transform: scaleY(-1);
+        }
+    }
+
+    &__inner {
+        cursor: pointer;
+        padding-left: 14px;
+        line-height: 1;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        display: flex;
+        border: 1px solid #ab6e17;
+        background: #fef5e3;
+        z-index: 1;
+
+        span {
+            color: #4c2f19;
+            font-size: 18px;
+        }
+    }
+
+    &__arrow-wrapper {
+        width: 25px;
+        height: 30px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        background: linear-gradient(#fff9e0,#f5c574 25%,#ffebc3 100%);
+    }
+
+    &__option-list-wrapper {
+        top: 0;
+        overflow: hidden;
+        width: 220px;
+        max-height: 0;
+        position: absolute;
+        background: #fcebc6;
+        transition: max-height .3s;
+    }
+
+    &__option-list {
+        padding-top: 30px;
+        border: 1px solid #b1b1b1;
+    }
+
+    &__option {
+        padding: 7px 10px;
+        transition: background .3s;
+
+        &:hover {
+            background: #d8af75;
+        }
+    }
+
+    &__image {
+        transition: transform .3s;
+    }
+}
