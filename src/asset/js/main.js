@@ -34,7 +34,6 @@ selectors.forEach(function (select) {
     select.after(newSelectorWrapper);
 
     let newSelector = document.createElement('div');
-    newSelector.classList.add('inner');
     newSelector.classList.add('selector__inner');
     newSelector.tabIndex = 0;
     newSelector.innerHTML = '<span>' + selectLabel + '</span>';
@@ -68,13 +67,20 @@ selectors.forEach(function (select) {
             let select = newSelectorWrapper.previousElementSibling;
             select.value = currentElement.dataset.value;
 
-            let newSelector = newSelectorWrapper.querySelector('.inner').querySelector('span');
+            let newSelector = newSelectorWrapper.querySelector('.selector__inner > span');
             newSelector.innerText = currentElement.innerText;
         });
     });
 
     newSelector.addEventListener('click', function (event) {
-        event.target.closest('.selector').classList.toggle('active');
+        let newSelectorWrapper = event.target.closest('.selector');
+        newSelectorWrapper.classList.toggle('active');
+
+        if (newSelectorWrapper.classList.contains('active')) {
+            newSelectorWrapper.style.zIndex = '2';
+        } else {
+            newSelectorWrapper.style.zIndex = '1';
+        }
     });
 });
 
@@ -86,7 +92,8 @@ document.addEventListener('click', function (event) {
             return;
         }
 
-        selector.classList.remove('active');
+        //selector.classList.remove('active');
+        //selector.style.zIndex = '1';
     })
 });
 
@@ -100,4 +107,51 @@ function getOptionLabelByValue(nodeList, value) {
     });
 
     return result;
+}
+
+/* Открыть Поп'ап заявка */
+let requestBtn = document.querySelector('.js-popup-trigger.request');
+if (requestBtn) {
+    requestBtn.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        let requestPopUpBody = document.querySelector('.js-popup-body.request');
+        var isActive = false;
+        if (requestPopUpBody) {
+            isActive = requestPopUpBody.classList.contains('active');
+        }
+
+        closeAllHeaderPopUp();
+
+        if (!isActive) {
+            requestPopUpBody.classList.add('active');
+        }
+    });
+}
+
+
+/* Открыть Поп'ап резюме */
+let resumeBtn = document.querySelector('.js-popup-trigger.resume');
+if (resumeBtn) {
+    resumeBtn.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        let resumePopUpBody = document.querySelector('.js-popup-body.resume');
+        var isActive = false;
+        if (resumePopUpBody) {
+            isActive = resumePopUpBody.classList.contains('active');
+        }
+
+        closeAllHeaderPopUp();
+
+        if (!isActive) {
+            resumePopUpBody.classList.add('active');
+        }
+    });
+}
+
+function closeAllHeaderPopUp() {
+    document.querySelectorAll('.js-popup-body').forEach(function (popUp) {
+        popUp.classList.remove('active');
+    });
 }

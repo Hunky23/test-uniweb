@@ -1,4 +1,5 @@
+.idea
 node_modules
-www/*
+www
 package.json
 package-lock.json

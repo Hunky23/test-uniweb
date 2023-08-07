@@ -35,10 +35,12 @@ html {
         height: 100%;
         background: linear-gradient(#e7c18d,#a66e23 50%,#9c621e);
         opacity: 0;
-        transition: opacity .3s;
+        transition: color,opacity .3s;
     }
 
     &:hover {
+        color: #fff;
+
         &:before {
             opacity: 1;
         }
@@ -65,20 +67,15 @@ html {
 
     &__inner {
         cursor: pointer;
-        padding-left: 14px;
+        padding-left: 10px;
         line-height: 1;
         justify-content: space-between;
         align-items: center;
         position: relative;
         display: flex;
         border: 1px solid #ab6e17;
-        background: #fef5e3;
+        background: #fff;
         z-index: 1;
-
-        span {
-            color: #4c2f19;
-            font-size: 18px;
-        }
     }
 
     &__arrow-wrapper {
@@ -93,7 +90,7 @@ html {
     &__option-list-wrapper {
         top: 0;
         overflow: hidden;
-        width: 220px;
+        width: 100%;
         max-height: 0;
         position: absolute;
         background: #fcebc6;
@@ -102,7 +99,7 @@ html {
 
     &__option-list {
         padding-top: 30px;
-        border: 1px solid #b1b1b1;
+        border: 1px solid #cd8e31;
     }
 
     &__option {
